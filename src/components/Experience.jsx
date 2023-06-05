@@ -429,10 +429,10 @@ export const Experience = () => {
 
   const tl = useRef();
   const backgroundColors = useRef({
-    // colorA: "#3535cc",
-    // colorB: "#abaadd",
-    colorA: "#2a215e",
-    colorB: "#62286c",
+    colorA: "#3535cc",
+    colorB: "#abaadd",
+    // colorA: "#2a215e",
+    // colorB: "#62286c",
   });
 
   const planeInTl = useRef();
@@ -443,24 +443,26 @@ export const Experience = () => {
 
     tl.current.to(backgroundColors.current, {
       duration: 1,
-      // colorA: "#6f35cc",
-      // colorB: "#ffad30",
-      colorA: "#040614",
-      colorB: "#0f2a56",
-    });
-    tl.current.to(backgroundColors.current, {
-      duration: 1,
       // colorA: "#424242",
       // colorB: "#ffcc00",
       colorA: "#543f4d",
       colorB: "#8d605d",
     });
+    
     tl.current.to(backgroundColors.current, {
       duration: 1,
-      // colorA: "#f6bcbe",
-      // colorB: "#f66763",
-      colorA: "#3535cc",
-      colorB: "#abaadd",
+      // colorA: "#3535cc",
+    // colorB: "#abaadd",
+    colorA: "#2a215e",
+    colorB: "#62286c",
+    });
+
+    tl.current.to(backgroundColors.current, {
+      duration: 1,
+      // colorA: "#6f35cc",
+      // colorB: "#ffad30",
+      colorA: "#040614",
+      colorB: "#0f2a56",
     });
 
     tl.current.pause();

@@ -75,8 +75,8 @@ body {
 }
 
 .voltrox {
-  height: 150px;
-  width: 600px;
+  height: 6rem;
+  width: 24rem;
 }
 
 .intro--disappear .logo {
@@ -209,6 +209,11 @@ body {
   .logo {
     font-size: 3rem;
     letter-spacing: 0.25rem;
+  }
+
+  .voltrox {
+    height: 4rem;
+    width: 20rem;
   }
 
   .intro--disappear .logo {
