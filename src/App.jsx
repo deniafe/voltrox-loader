@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+/* eslint-disable react/no-unknown-property */
+import { ScrollControls } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import { EffectComposer, Noise } from "@react-three/postprocessing";
+import { Experience } from "./components/Experience";
+import { Overlay } from "./components/Overlay";
+import { usePlay } from "./contexts/Play";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { play, end } = usePlay();
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Canvas>
+        <color attach="background" args={["#ececec"]} />
+        <ScrollControls
+          pages={play && !end ? 20 : 0}
+          damping={0.5}
+          style={{
+            top: "10px",
+            left: "0px",
+            bottom: "10px",
+            right: "10px",
+            width: "auto",
+            height: "auto",
+            animation: "fadeIn 2.4s ease-in-out 1.2s forwards",
+            opacity: 0,
+          }}
+        >
+          <Experience />
+        </ScrollControls>
+        <EffectComposer>
+          <Noise opacity={0.2} />
+        </EffectComposer>
+      </Canvas>
+      <Overlay />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
